@@ -1,30 +1,66 @@
-# Pointer AI landing page
+# CalX Dashboard
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+The web dashboard for managing your CalX smart calculator device.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/saijayaranjans-projects/v0-pointer-ai-landing-page-49)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/0WxuGI7fy0S)
+## Features
 
-## Overview
+- **User Authentication** - Secure login/register with JWT
+- **Device Binding** - Connect your CalX device using a 4-character code
+- **Device Overview** - Monitor battery, status, and firmware version
+- **AI Configuration** - Set up your preferred AI provider (OpenAI, Anthropic, Gemini, Perplexity, etc.)
+- **Real-time Chat** - Send messages to your device
+- **File Storage** - Upload and sync text files to your device
+- **Device Settings** - Configure power mode, text size, keyboard layout
+- **OTA Updates** - Trigger firmware updates
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Tech Stack
+
+- **Framework**: Next.js 15
+- **Styling**: Tailwind CSS
+- **UI Components**: Radix UI + shadcn/ui
+- **Forms**: React Hook Form + Zod
+- **Backend**: [CalX Backend](https://github.com/Saijayaranjan/calx-backend)
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Configure environment (optional - defaults to production backend)
+echo "NEXT_PUBLIC_API_URL=https://calx-backend.onrender.com" > .env.local
+
+# Run development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000)
+
+## Environment Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `NEXT_PUBLIC_API_URL` | `https://calx-backend.onrender.com` | Backend API URL |
 
 ## Deployment
 
-Your project is live at:
+### Vercel (Recommended)
 
-**[https://vercel.com/saijayaranjans-projects/v0-pointer-ai-landing-page-49](https://vercel.com/saijayaranjans-projects/v0-pointer-ai-landing-page-49)**
+1. Connect your GitHub repo to Vercel
+2. Deploy - it works out of the box!
 
-## Build your app
+### Manual
 
-Continue building your app on:
+```bash
+npm run build
+npm start
+```
 
-**[https://v0.app/chat/0WxuGI7fy0S](https://v0.app/chat/0WxuGI7fy0S)**
+## Related
 
-## How It Works
+- [CalX Backend](https://github.com/Saijayaranjan/calx-backend) - Node.js/Express API
+- [CalX Firmware](https://github.com/Saijayaranjan/calx-firmware) - ESP32 firmware (coming soon)
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## License
+
+MIT
