@@ -1,5 +1,5 @@
 // API Configuration for CalX Backend
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://calx-backend.onrender.com';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://calx-api.vercel.app";
 
 // Token storage keys
 const TOKEN_KEY = 'calx_token';
