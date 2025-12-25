@@ -6,34 +6,34 @@ import { ChevronDown } from "lucide-react"
 
 const faqData = [
   {
-    question: "What is Pointer and who is it for?",
+    question: "What is CalX and who is it for?",
     answer:
-      "Pointer is an AI-powered development platform designed for developers, teams, and organizations who want toaccelerate their coding workflow. It's perfect for both individual developers looking to enhance their productivity and teams seeking seamless collaboration tools.",
+      "CalX is an ESP32-powered smart calculator designed for engineers, students, and professionals who need more than basic calculations. It combines traditional calculator functionality with AI capabilities, cloud sync, and remote device management.",
   },
   {
-    question: "How does Pointer's AI code review work?",
+    question: "How does the AI feature work?",
     answer:
-      "Our AI analyzes your code in real-time, providing intelligent suggestions for improvements, catching potential bugs, and ensuring best practices. It learns from your coding patterns and adapts to your team's standards, making code reviews faster and more consistent.",
+      "CalX connects to AI providers like GPT-4, Claude, or Gemini through your configured API keys. You can ask complex math questions, get step-by-step solutions, or even discuss concepts. All AI interactions sync to your web dashboard for easy access.",
   },
   {
-    question: "Can I integrate Pointer with my existing tools?",
+    question: "What can I do from the web dashboard?",
     answer:
-      "Yes! Pointer offers one-click integrations with popular development tools including GitHub, GitLab, VS Code, Slack, and many more. Our MCP connectivity allows you to easily manage and configure server access across your entire development stack.",
+      "The dashboard lets you chat with your CalX device, upload text files (up to 4KB), configure AI settings, adjust device preferences like screen timeout and text size, push firmware updates, and view activity logs — all from any browser.",
   },
   {
-    question: "What's included in the free plan?",
+    question: "How do I connect my CalX device?",
     answer:
-      "The free plan includes real-time code suggestions, basic integrations, single MCP server connection, up to 2 AI coding agents, and Vercel deployments with Pointer branding. It's perfect for individual developers getting started.",
+      "After creating an account, your CalX device will display a 6-digit binding code. Enter this code in the dashboard to securely link your device. Once connected, all settings and messages sync automatically.",
   },
   {
-    question: "How do parallel coding agents work?",
+    question: "Is my data secure?",
     answer:
-      "Our parallel coding agents can work on different parts of your codebase simultaneously, solving complex problems faster than traditional single-threaded approaches. You can launch multiple agents to handle different tasks like bug fixes, feature development, and code optimization concurrently.",
+      "Absolutely. All communication between CalX and the cloud uses end-to-end encryption. Your API keys are stored securely on the device and never transmitted. You have full control over what data syncs to the cloud.",
   },
   {
-    question: "Is my code secure with Pointer?",
+    question: "How do firmware updates work?",
     answer:
-      "Absolutely. We use enterprise-grade security measures including end-to-end encryption, secure data transmission, and compliance with industry standards. Your code never leaves your secure environment without your explicit permission, and we offer on-premises deployment options for enterprise customers.",
+      "Updates are pushed over-the-air (OTA) from the dashboard. Upload a new firmware file, trigger the update, and monitor progress. There are no automatic updates — you're always in control of when your device updates.",
   },
 ]
 
@@ -58,7 +58,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }: FAQItemProps) => {
         <div className="flex-1 text-foreground text-base font-medium leading-6 break-words">{question}</div>
         <div className="flex justify-center items-center">
           <ChevronDown
-            className={`w-6 h-6 text-muted-foreground-dark transition-all duration-500 ease-out ${isOpen ? "rotate-180 scale-110" : "rotate-0 scale-100"}`}
+            className={`w-6 h-6 text-muted-foreground transition-all duration-500 ease-out ${isOpen ? "rotate-180 scale-110" : "rotate-0 scale-100"}`}
           />
         </div>
       </div>
@@ -91,15 +91,15 @@ export function FAQSection() {
     setOpenItems(newOpenItems)
   }
   return (
-    <section className="w-full pt-[66px] pb-20 md:pb-40 px-5 relative flex flex-col justify-center items-center">
+    <section id="faq-section" className="w-full pt-[66px] pb-20 md:pb-40 px-5 relative flex flex-col justify-center items-center">
       <div className="w-[300px] h-[500px] absolute top-[150px] left-1/2 -translate-x-1/2 origin-top-left rotate-[-33.39deg] bg-primary/10 blur-[100px] z-0" />
       <div className="self-stretch pt-8 pb-8 md:pt-14 md:pb-14 flex flex-col justify-center items-center gap-2 relative z-10">
         <div className="flex flex-col justify-start items-center gap-4">
-          <h2 className="w-full max-w-[435px] text-center text-foreground text-4xl font-semibold leading-10 break-words">
+          <h2 className="w-full max-w-[435px] text-center text-foreground text-3xl sm:text-4xl font-semibold leading-10 break-words">
             Frequently Asked Questions
           </h2>
           <p className="self-stretch text-center text-muted-foreground text-sm font-medium leading-[18.20px] break-words">
-            Everything you need to know about Pointer and how it can transform your development workflow
+            Everything you need to know about CalX and how it can enhance your calculations
           </p>
         </div>
       </div>

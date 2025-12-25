@@ -6,10 +6,10 @@ import Link from "next/link"
 export function HeroSection() {
   return (
     <section
-      className="flex flex-col items-center text-center relative mx-auto rounded-2xl overflow-hidden my-6 py-0 px-4
-         w-full h-[400px] md:w-[1220px] md:h-[600px] lg:h-[810px] md:px-0"
+      className="flex flex-col items-center justify-center text-center relative w-full overflow-hidden py-0 px-0
+         min-h-screen md:h-[600px] lg:h-[810px]"
     >
-      {/* SVG Background */}
+      {/* SVG Background - Full width, no rounded corners */}
       <div className="absolute inset-0 z-0">
         <svg
           width="100%"
@@ -303,16 +303,6 @@ export function HeroSection() {
             </g>
           </g>
 
-          <rect
-            x="0.5"
-            y="0.5"
-            width="1219"
-            height="809"
-            rx="15.5"
-            stroke="hsl(var(--foreground))"
-            strokeOpacity="0.06"
-          />
-
           <defs>
             <filter
               id="filter0_f_186_1134"
@@ -426,31 +416,35 @@ export function HeroSection() {
               <stop offset="1" stopColor="hsl(var(--primary))" />
             </radialGradient>
             <clipPath id="clip0_186_1134">
-              <rect width="1220" height="810" rx="16" fill="hsl(var(--foreground))" />
+              <rect width="1220" height="810" fill="hsl(var(--foreground))" />
             </clipPath>
           </defs>
         </svg>
       </div>
 
-      {/* Header positioned at top of hero container */}
-      <div className="absolute top-0 left-0 right-0 z-20">
+      {/* Header positioned at top - full width */}
+      <div className="absolute top-0 left-0 right-0 z-20 w-full">
         <Header />
       </div>
 
-      <div className="relative z-10 space-y-4 md:space-y-5 lg:space-y-6 mb-6 md:mb-7 lg:mb-9 max-w-md md:max-w-[500px] lg:max-w-[588px] mt-16 md:mt-[120px] lg:mt-[160px] px-4">
-        <h1 className="text-foreground text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight">
-          Unleash the Power of AI Agents
-        </h1>
-        <p className="text-muted-foreground text-base md:text-base lg:text-lg font-medium leading-relaxed max-w-lg mx-auto">
-          Accelerate your development workflow with intelligent AI agents that write, review, and optimize your code.
-        </p>
-      </div>
+      <div className="relative z-10 flex flex-col items-center text-center md:-mt-[150px]">
+        <div className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6 mb-4 sm:mb-6 md:mb-7 lg:mb-9 max-w-[90%] sm:max-w-lg md:max-w-[700px] lg:max-w-[900px] px-4">
+          <h1 className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight font-nexa">
+            The Smart Calculator
+          </h1>
+          <p className="text-muted-foreground text-sm sm:text-base md:text-base lg:text-lg font-medium leading-relaxed max-w-xs sm:max-w-lg mx-auto">
+            CalX is an ESP32-powered smart calculator with AI capabilities, cloud sync, and seamless device management from anywhere.
+          </p>
+        </div>
 
-      <Link href="https://vercel.com/home" target="_blank" rel="noopener noreferrer">
-        <Button className="relative z-10 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10">
-          Signup for free
-        </Button>
-      </Link>
+        <div className="px-4 sm:px-0">
+          <Link href="/login">
+            <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 sm:px-10 py-3 sm:py-3.5 rounded-full font-medium text-sm sm:text-base shadow-lg ring-1 ring-white/10">
+              Get Started
+            </Button>
+          </Link>
+        </div>
+      </div>
     </section>
   )
 }

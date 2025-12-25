@@ -4,14 +4,49 @@
 
 @layer base {
   :root {
-    /* Themeable Colors - Restored to Original Vibe */
-    --background: 210 11% 7%; /* #0f1211 */
-    --foreground: 160 14% 93%; /* #e7eceb */
+    /* Light Theme */
+    --background: 0 0% 100%;
+    --foreground: 210 11% 15%;
 
-    --muted: 240 2% 16%; /* #27272a */
-    --muted-foreground: 160 14% 93% / 0.7; /* rgba(231, 236, 235, 0.7) */
-    --muted-foreground-light: 160 14% 93% / 0.5; /* rgba(231, 236, 235, 0.5) */
-    --muted-foreground-dark: 160 14% 93% / 0.6; /* rgba(231, 236, 235, 0.6) */
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 11% 40%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 15%;
+
+    /* Primary Accent Colors - Muted Teal/Cyan */
+    --primary: 165 96% 40%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 165 100% 35%;
+    --primary-light: 165 48% 87%;
+
+    /* Secondary Accent Colors */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 210 11% 15%;
+
+    --accent: 210 20% 94%;
+    --accent-foreground: 210 11% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 165 96% 40%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark Theme - Default CalX Theme */
+    --background: 210 11% 7%;
+    --foreground: 160 14% 93%;
+
+    --muted: 240 2% 16%;
+    --muted-foreground: 160 14% 93% / 0.7;
 
     --card: 220 17% 98% / 0.01;
     --card-foreground: 160 14% 93%;
@@ -20,25 +55,24 @@
     --popover-foreground: 160 14% 93%;
 
     /* Primary Accent Colors */
-    --primary: 165 96% 71%; /* #78fcd6 */
-    --primary-foreground: 160 8% 6%; /* #0d0f0e */
-    --primary-dark: 160 100% 50%; /* #00ffb6 */
-    --primary-light: 160 48% 87%; /* New variable for lighter teal/green shades */
+    --primary: 165 96% 71%;
+    --primary-foreground: 160 8% 6%;
+    --primary-dark: 160 100% 50%;
+    --primary-light: 160 48% 87%;
 
-    /* Secondary Accent Colors (for buttons, etc.) */
-    --secondary: 160 14% 93%; /* #e7eceb */
-    --secondary-foreground: 165 14% 8%; /* #141a18 */
+    /* Secondary Accent Colors */
+    --secondary: 160 14% 93%;
+    --secondary-foreground: 165 14% 8%;
 
-    --accent: 240 2% 25%; /* #3f3f42 */
-    --accent-foreground: 240 2% 96%; /* #f4f4f5 */
+    --accent: 240 2% 25%;
+    --accent-foreground: 240 2% 96%;
 
-    --border: 240 100% 100% / 0.08; /* rgba(255, 255, 255, 0.08) */
-    --border-light: 210 17% 6% / 0.1; /* rgba(16,24,40,0.1) */
-    --border-dark: 210 17% 6% / 0.05; /* rgba(16,24,40,0.05) */
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
 
+    --border: 240 100% 100% / 0.08;
+    --input: 240 100% 100% / 0.08;
     --ring: 165 96% 71%;
-
-    --radius: 0.5rem;
   }
 }
 
@@ -49,4 +83,42 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom scrollbar for dark theme */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(var(--accent));
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Light theme scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
 }

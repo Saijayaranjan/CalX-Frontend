@@ -4,19 +4,20 @@ import type React from "react"
 
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { Menu } from "lucide-react"
-import Link from "next/link" // Import Link for client-side navigation
+import Link from "next/link"
 
 export function Header() {
   const navItems = [
     { name: "Features", href: "#features-section" },
-    { name: "Pricing", href: "#pricing-section" },
-    { name: "Testimonials", href: "#testimonials-section" }, // Changed from Docs to Testimonials
+    { name: "Specs", href: "#specs-section" },
+    { name: "FAQ", href: "#faq-section" },
   ]
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    const targetId = href.substring(1) // Remove '#' from href
+    const targetId = href.substring(1)
     const targetElement = document.getElementById(targetId)
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: "smooth" })
@@ -24,29 +25,35 @@ export function Header() {
   }
 
   return (
-    <header className="w-full py-4 px-6">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <header className="w-full py-4 px-6 md:px-12">
+      <div className="w-full flex items-center justify-between">
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-3">
-            <span className="text-foreground text-xl font-semibold">Pointer</span>
-          </div>
+          <Link href="/" className="flex items-center gap-2">
+            <span className="text-foreground text-xl font-semibold font-nexa">CalX</span>
+          </Link>
           <nav className="hidden md:flex items-center gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                onClick={(e) => handleScroll(e, item.href)} // Add onClick handler
-                className="text-[#888888] hover:text-foreground px-4 py-2 rounded-full font-medium transition-colors"
+                onClick={(e) => handleScroll(e, item.href)}
+                className="text-muted-foreground hover:text-foreground px-4 py-2 rounded-full font-medium transition-colors"
               >
                 {item.name}
               </Link>
             ))}
           </nav>
         </div>
-        <div className="flex items-center gap-4">
-          <Link href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" className="hidden md:block">
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <Link href="/login" className="hidden md:block">
+            <Button variant="ghost" className="text-muted-foreground hover:text-foreground px-4 py-2 rounded-full font-medium">
+              Sign In
+            </Button>
+          </Link>
+          <Link href="/login" className="hidden md:block">
             <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
-              Try for Free
+              Get Started
             </Button>
           </Link>
           <Sheet>
@@ -65,15 +72,19 @@ export function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    onClick={(e) => handleScroll(e, item.href)} // Add onClick handler
-                    className="text-[#888888] hover:text-foreground justify-start text-lg py-2"
+                    onClick={(e) => handleScroll(e, item.href)}
+                    className="text-muted-foreground hover:text-foreground justify-start text-lg py-2"
                   >
                     {item.name}
                   </Link>
                 ))}
-                <Link href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" className="w-full mt-4">
-                  <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
-                    Try for Free
+                <div className="flex items-center gap-2 mt-4">
+                  <span className="text-muted-foreground">Theme:</span>
+                  <ThemeToggle />
+                </div>
+                <Link href="/login" className="w-full mt-2">
+                  <Button className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
+                    Get Started
                   </Button>
                 </Link>
               </nav>
