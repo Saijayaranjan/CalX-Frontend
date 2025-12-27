@@ -205,11 +205,16 @@ export default function DashboardOverview() {
                     {/* WiFi Stat Card */}
                     <div className="col-span-1 rounded-3xl border border-border bg-card p-6 flex flex-col justify-between relative overflow-hidden hover:border-primary/50 transition-colors group">
                         <div className="flex justify-between items-start">
-                            <span className="text-muted-foreground font-medium flex items-center gap-2"><Wifi className="w-4 h-4" /> Status</span>
+                            <span className="text-muted-foreground font-medium flex items-center gap-2"><Wifi className="w-4 h-4" /> WiFi</span>
                             <span className={`text-lg font-bold ${selectedDevice.online ? "text-green-500" : "text-muted-foreground"}`}>
                                 {selectedDevice.online ? "Connected" : "Offline"}
                             </span>
                         </div>
+                        {selectedDevice.wifiSsid && (
+                            <div className="mt-2 text-sm text-muted-foreground truncate">
+                                {selectedDevice.wifiSsid}
+                            </div>
+                        )}
                         <div className="mt-4 flex items-end gap-1 h-8">
                             <div className={`w-1.5 h-3 rounded-sm ${selectedDevice.online ? "bg-primary/30" : "bg-muted"}`} />
                             <div className={`w-1.5 h-4 rounded-sm ${selectedDevice.online ? "bg-primary/60" : "bg-muted"}`} />
@@ -278,17 +283,6 @@ export default function DashboardOverview() {
                         <p className="text-xs text-green-500 flex items-center gap-1">
                             <Check className="w-3 h-3" /> Up to date
                         </p>
-                    </div>
-
-                    {/* WiFi Network */}
-                    <div className="col-span-1 rounded-3xl border border-border bg-card p-6 flex flex-col justify-center gap-1 hover:border-primary/50 transition-colors">
-                        <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
-                            <Wifi className="w-4 h-4" /> WiFi Network
-                        </div>
-                        <div className="text-lg font-semibold text-foreground truncate">
-                            {selectedDevice.wifiSsid || 'Not connected'}
-                        </div>
-                        <p className="text-xs text-muted-foreground">Current network</p>
                     </div>
 
                     {/* Storage */}
