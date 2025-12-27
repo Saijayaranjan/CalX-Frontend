@@ -2,6 +2,8 @@
 
 The web dashboard for managing your CalX smart calculator device.
 
+![CalX Dashboard](./public/images/Website.png)
+
 ## Features
 
 - **User Authentication** - Secure login/register with JWT
