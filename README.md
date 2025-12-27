@@ -1,15 +1,28 @@
 # CalX Dashboard
 
-The web dashboard for managing your CalX smart calculator device.
+<div align="center">
+
+[![Website](https://img.shields.io/badge/Website-calxio.vercel.app-blue?style=for-the-badge)](https://calxio.vercel.app/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+
+**The web dashboard for managing your CalX smart calculator device.**
+
+🌐 **[CalX Website](https://calxio.vercel.app/)**
 
 ![CalX Dashboard](./public/images/Website.png)
+
+</div>
+
+---
 
 ## Features
 
 - **User Authentication** - Secure login/register with JWT
 - **Device Binding** - Connect your CalX device using a 4-character code
 - **Device Overview** - Monitor battery, status, and firmware version
-- **AI Configuration** - Set up your preferred AI provider (OpenAI, Anthropic, Gemini, Perplexity, etc.)
+- **AI Configuration** - Set up your preferred AI provider (OpenAI, Anthropic, Gemini, etc.)
 - **Real-time Chat** - Send messages to your device
 - **File Storage** - Upload and sync text files to your device
 - **Device Settings** - Configure power mode, text size, keyboard layout
@@ -58,11 +71,16 @@ npm run build
 npm start
 ```
 
-## Related
-
-- [CalX Backend](https://github.com/Saijayaranjan/calx-backend) - Node.js/Express API
-- [CalX Firmware](https://github.com/Saijayaranjan/calx-firmware) - ESP32 firmware (coming soon)
-
 ## License
 
-MIT
+MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+<div align="center">
+
+**Part of the CalX Ecosystem**
+
+🌐 [CalX Website](https://calxio.vercel.app/) • [Backend](https://github.com/Saijayaranjan/calx-backend) • [Firmware](https://github.com/Saijayaranjan/CalX-Fireware)
+
+</div>
