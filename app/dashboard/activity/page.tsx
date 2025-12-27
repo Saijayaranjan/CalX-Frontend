@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { MessageSquare, FileText, Brain, RefreshCw, Clock, Filter, Search, Loader2 } from "lucide-react"
-import { getDeviceActivity } from "@/lib/api"
-import { useDeviceStore } from "@/lib/store"
+import { getDeviceActivity, getDeviceList } from "@/lib/api"
 
 interface ActivityEvent {
     id: string
@@ -58,26 +57,28 @@ const formatTimestamp = (date: Date) => {
 }
 
 export default function ActivityLogPage() {
-    const { selectedDevice } = useDeviceStore()
     const [activityData, setActivityData] = useState<ActivityEvent[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
         async function fetchActivity() {
-            if (!selectedDevice) {
-                setError("No device selected")
-                setLoading(false)
-                return
-            }
-
             try {
                 setLoading(true)
-                const data = await getDeviceActivity(selectedDevice.deviceId)
-                
+                // Get first device from device list
+                const devices = await getDeviceList()
+                if (devices.length === 0) {
+                    setError("No devices found")
+                    setLoading(false)
+                    return
+                }
+
+                const device = devices[0]
+                const data = await getDeviceActivity(device.deviceId)
+
                 // Convert timestamps to ActivityEvent format
                 const events: ActivityEvent[] = []
-                
+
                 if (data.last_chat_message) {
                     events.push({
                         id: "chat",
@@ -86,7 +87,7 @@ export default function ActivityLogPage() {
                         timestamp: new Date(data.last_chat_message)
                     })
                 }
-                
+
                 if (data.last_file_sync) {
                     events.push({
                         id: "file",
@@ -95,7 +96,7 @@ export default function ActivityLogPage() {
                         timestamp: new Date(data.last_file_sync)
                     })
                 }
-                
+
                 if (data.last_ai_query) {
                     events.push({
                         id: "ai",
@@ -104,10 +105,10 @@ export default function ActivityLogPage() {
                         timestamp: new Date(data.last_ai_query)
                     })
                 }
-                
+
                 // Sort by most recent first
                 events.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())
-                
+
                 setActivityData(events)
                 setError(null)
             } catch (err) {
@@ -119,7 +120,7 @@ export default function ActivityLogPage() {
         }
 
         fetchActivity()
-    }, [selectedDevice])
+    }, [])
 
     return (
         <div className="w-full max-w-[1600px] mx-auto space-y-6">
