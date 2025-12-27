@@ -71,6 +71,22 @@ npm run build
 npm start
 ```
 
+## ✅ What Works Today
+
+- User registration and login with JWT authentication
+- Device binding via 4-character codes
+- Multi-provider AI configuration (OpenAI, Gemini, Claude, etc.)
+- Real-time chat between dashboard and device
+- File storage and sync (up to 4000 characters)
+- Device settings management
+- Responsive dashboard UI
+
+## ⚠️ Known Issues
+
+- **No rate limiting** - API endpoints don't have rate limiting yet
+- **Device page requires hardware** - Device features need a physical CalX device
+- **OTA not tested end-to-end** - Firmware updates implemented but not fully tested
+
 ## License
 
 Apache License 2.0 - see [LICENSE](LICENSE) for details.
