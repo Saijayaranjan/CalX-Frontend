@@ -5,7 +5,7 @@
 [![Website](https://img.shields.io/badge/Website-calxio.vercel.app-blue?style=for-the-badge)](https://calxio.vercel.app/)
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue)](LICENSE)
 
 **The web dashboard for managing your CalX smart calculator device.**
 
@@ -73,7 +73,7 @@ npm start
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+Apache License 2.0 - see [LICENSE](LICENSE) for details.
 
 ---
 
