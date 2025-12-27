@@ -137,8 +137,8 @@ export default function DashboardOverview() {
                             key={device.id}
                             onClick={() => handleSelectDevice(device)}
                             className={`flex items-center gap-2 px-4 py-2 rounded-xl border transition-colors whitespace-nowrap ${selectedDevice?.id === device.id
-                                    ? "border-primary bg-primary/10 text-primary"
-                                    : "border-border hover:border-primary/50"
+                                ? "border-primary bg-primary/10 text-primary"
+                                : "border-border hover:border-primary/50"
                                 }`}
                         >
                             <div className={`w-2 h-2 rounded-full ${device.online ? "bg-green-500" : "bg-muted-foreground"}`} />
@@ -161,8 +161,8 @@ export default function DashboardOverview() {
                     <div className="col-span-1 md:col-span-2 lg:col-span-2 rounded-3xl border border-border bg-gradient-to-br from-background to-muted/20 p-6 flex flex-col justify-between relative overflow-hidden group">
                         <div className="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
                             <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border ${selectedDevice.online
-                                    ? "bg-primary/10 text-primary border-primary/20"
-                                    : "bg-muted text-muted-foreground border-border"
+                                ? "bg-primary/10 text-primary border-primary/20"
+                                : "bg-muted text-muted-foreground border-border"
                                 }`}>
                                 <div className={`w-1.5 h-1.5 rounded-full ${selectedDevice.online ? "bg-primary animate-pulse" : "bg-muted-foreground"}`} />
                                 {selectedDevice.online ? "Online" : "Offline"}
@@ -195,7 +195,7 @@ export default function DashboardOverview() {
                         <div className="w-full h-2 bg-muted rounded-full mt-4 overflow-hidden">
                             <div
                                 className={`h-full transition-all duration-1000 ease-out ${selectedDevice.batteryPercent > 50 ? "bg-primary" :
-                                        selectedDevice.batteryPercent > 20 ? "bg-yellow-500" : "bg-destructive"
+                                    selectedDevice.batteryPercent > 20 ? "bg-yellow-500" : "bg-destructive"
                                     }`}
                                 style={{ width: `${selectedDevice.batteryPercent}%` }}
                             />
@@ -278,6 +278,42 @@ export default function DashboardOverview() {
                         <p className="text-xs text-green-500 flex items-center gap-1">
                             <Check className="w-3 h-3" /> Up to date
                         </p>
+                    </div>
+
+                    {/* WiFi Network */}
+                    <div className="col-span-1 rounded-3xl border border-border bg-card p-6 flex flex-col justify-center gap-1 hover:border-primary/50 transition-colors">
+                        <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
+                            <Wifi className="w-4 h-4" /> WiFi Network
+                        </div>
+                        <div className="text-lg font-semibold text-foreground truncate">
+                            {selectedDevice.wifiSsid || 'Not connected'}
+                        </div>
+                        <p className="text-xs text-muted-foreground">Current network</p>
+                    </div>
+
+                    {/* Storage */}
+                    <div className="col-span-1 rounded-3xl border border-border bg-card p-6 flex flex-col justify-center gap-1 hover:border-primary/50 transition-colors">
+                        <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                            </svg>
+                            Storage
+                        </div>
+                        <div className="text-xl font-semibold text-foreground">
+                            {selectedDevice.freeStorage ? `${Math.round(selectedDevice.freeStorage / 1024)}KB` : 'N/A'}
+                        </div>
+                        <p className="text-xs text-muted-foreground">Available</p>
+                    </div>
+
+                    {/* RAM */}
+                    <div className="col-span-1 rounded-3xl border border-border bg-card p-6 flex flex-col justify-center gap-1 hover:border-primary/50 transition-colors">
+                        <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
+                            <Cpu className="w-4 h-4" /> RAM
+                        </div>
+                        <div className="text-xl font-semibold text-foreground">
+                            {selectedDevice.freeRam ? `${Math.round(selectedDevice.freeRam / 1024)}KB` : 'N/A'}
+                        </div>
+                        <p className="text-xs text-muted-foreground">Free memory</p>
                     </div>
                 </div>
             )}

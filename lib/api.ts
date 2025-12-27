@@ -113,6 +113,9 @@ export interface Device {
     textSize: 'SMALL' | 'NORMAL' | 'LARGE';
     keyboard: 'QWERTY' | 'T9';
     screenTimeout: number;
+    wifiSsid?: string | null;
+    freeStorage?: number | null;
+    freeRam?: number | null;
 }
 
 export async function getDeviceList(): Promise<Device[]> {
